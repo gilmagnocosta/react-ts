@@ -3,7 +3,7 @@ import api from '../../../services/api';
 
 import { loadSuccess, loadFailure } from './actions';
 
-export function* load() {
+export function* loadAllRepositories() {
   try{
     const response = yield call (api.get, 'users/gilmagnocosta/repos');
 
