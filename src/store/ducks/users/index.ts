@@ -1,38 +1,37 @@
-import { Reducer } from 'redux';
-import { UsersState, UsersTypes } from './types';
+import { Reducer } from "redux";
+import { UsersState, UsersTypes } from "./types";
 
 const INITIAL_STATE: UsersState = {
   data: [],
   loading: false,
-  error: false,
+  error: false
 };
 
 const reducer: Reducer<UsersState> = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case UsersTypes.LOAD_ALL_REQUEST:
       return {
         ...state,
-        loading: true,
+        loading: true
       };
     case UsersTypes.LOAD_ALL_SUCCESS:
       return {
         ...state,
         loading: false,
         error: false,
-        data: action.payload.data,
-      }
+        data: action.payload.data
+      };
     case UsersTypes.LOAD_ALL_FAILURE:
       return {
         ...state,
         loading: false,
-        error: true,
-        data: [],
-      }
+        error: true
+      };
     default:
       return {
         ...state
-      }
+      };
   }
-}
+};
 
 export default reducer;
